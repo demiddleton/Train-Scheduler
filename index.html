@@ -19,56 +19,78 @@
             <p>Choo Choo. Chee Chee</p>
         </div>
 
-        <div class="row">
+        <div class="row" id="table-area">
             <div class="col-md-12" id="table-header">
                 <strong> Current Train Schedule</strong>
             </div>
         </div>
-        <div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Train Name</th>
-                        <th scope="col">Destination</th>
-                        <th scope="col">Frequency (mins)</th>
-                        <th scope="col">Next Arrival</th>
-                        <th scope="col">Minutes Away</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td scope="row">Trenton Express</td>
-                        <td>Trenton</td>
-                        <td>25</td>
-                        <td>05:35 PM</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Oregon Trail</td>
-                        <td>Salem,Oregon</td>
-                        <td>3600</td>
-                        <td>01:39 PM</td>
-                        <td>1154</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Midnight Carriage</td>
-                        <td>Phlidelphia</td>
-                        <td>15</td>
-                        <td>5:35</td>
-                        <td>10</td>
-                    </tr>
 
-                </tbody>
-            </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (mins)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">Trenton Express</td>
+                    <td>Trenton</td>
+                    <td>25</td>
+                    <td>05:35 PM</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td scope="row">Oregon Trail</td>
+                    <td>Salem,Oregon</td>
+                    <td>3600</td>
+                    <td>01:39 PM</td>
+                    <td>1154</td>
+                </tr>
+                <tr>
+                    <td scope="row">Midnight Carriage</td>
+                    <td>Phlidelphia</td>
+                    <td>15</td>
+                    <td>5:35</td>
+                    <td>10</td>
+                </tr>
 
-            <div class="row">
-                    <div class="col-md-12" id="form-header">
-                        <strong> Add Train</strong>
-                    </div>
-                </div>
+            </tbody>
+        </table>
 
-
+        <div class="row" id="form-area">
+            <div class="col-md-12" id="form-header">
+                <strong> Add Train</strong>
+            </div>
         </div>
+
+    </div>
+    <form>
+
+        <div class="form-group">
+            <label for="TrainName">Train Name</label>
+            <input type="text" class="form-control" id="train-name">
+        </div>
+
+        <div class="form-group">
+            <label for="TrainDestination">Destination</label>
+            <input type="text" class="form-control" id="train-destination">
+        </div>
+
+        <div class="form-group">
+            <label for="TrainTime">First Train Time (HH:MM - military time)</label>
+            <input type="text" class="form-control" id="train-time">
+        </div>
+
+        <div class="form-group">
+            <label for="TrainFrequency">Frequency (mins)</label>
+            <input type="text" class="form-control" id="train-frequency">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 
 
 

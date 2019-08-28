@@ -6,69 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Link Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--Link stylesheet-->
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Train Scheduler</title>
 </head>
 
 <body>
     <div class="container">
 
-        <div class="jumbotron">
+        <div class="jumbotron bg-success text-white">
             <h1 class="text-center">Anytime is Train Time</h1>
-            <p>Choo Choo. Chee Chee</p>
+            <p class="text-center">Choo Choo. Chee Chee</p>
         </div>
 
-        <div class="row" id="table-area">
-            <div class="col-md-12" id="table-header">
+        <div class="row border border-success " id="table-area">
+            <div class="col-md-12 bg-success" id="table-header">
                 <strong> Current Train Schedule</strong>
             </div>
-        </div>
 
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Train Name</th>
-                    <th scope="col">Destination</th>
-                    <th scope="col">Frequency (mins)</th>
-                    <th scope="col">Next Arrival</th>
-                    <th scope="col">Minutes Away</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td scope="row">Trenton Express</td>
-                    <td>Trenton</td>
-                    <td>25</td>
-                    <td>05:35 PM</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td scope="row">Oregon Trail</td>
-                    <td>Salem,Oregon</td>
-                    <td>3600</td>
-                    <td>01:39 PM</td>
-                    <td>1154</td>
-                </tr>
-                <tr>
-                    <td scope="row">Midnight Carriage</td>
-                    <td>Phlidelphia</td>
-                    <td>15</td>
-                    <td>5:35</td>
-                    <td>10</td>
-                </tr>
+            <table class="table table-bordered border border-success">
+                <thead>
+                    <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency (mins)</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Trenton Express</td>
+                        <td>Trenton</td>
+                        <td>25</td>
+                        <td>05:35 PM</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Oregon Trail</td>
+                        <td>Salem,Oregon</td>
+                        <td>3600</td>
+                        <td>01:39 PM</td>
+                        <td>1154</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Midnight Carriage</td>
+                        <td>Phlidelphia</td>
+                        <td>15</td>
+                        <td>5:35</td>
+                        <td>10</td>
+                    </tr>
 
-            </tbody>
-        </table>
-
-        <div class="row" id="form-area">
-            <div class="col-md-12" id="form-header">
-                <strong> Add Train</strong>
-            </div>
+                </tbody>
+            </table>
         </div>
 
     </div>
-    <form>
+    <br>
+    <form class="border border-success justify-content-center">
+
+        <div class="form-group border border-success bg-success">
+            <label for="AddTrain"><strong> Add Train</strong></label>
+        </div>
 
         <div class="form-group">
             <label for="TrainName">Train Name</label>
@@ -89,7 +94,7 @@
             <label for="TrainFrequency">Frequency (mins)</label>
             <input type="text" class="form-control" id="train-frequency">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
     </form>
 
 
@@ -103,7 +108,7 @@
 
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-database.js"></script>
     <script src="assets\javascript\moment.js"></script>
@@ -113,9 +118,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+
 </body>
 
 </html>

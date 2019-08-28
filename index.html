@@ -13,7 +13,8 @@
 
     <!--Link stylesheet-->
     <link rel="stylesheet" href="css/style.css">
-
+    
+   
     <title>Train Scheduler</title>
 </head>
 
@@ -76,22 +77,22 @@
         </div>
 
         <div class="form-group">
-            <label for="TrainName">Train Name</label>
+            <label for="trainName">Train Name</label>
             <input type="text" class="form-control" id="train-name">
         </div>
 
         <div class="form-group">
-            <label for="TrainDestination">Destination</label>
+            <label for="trainDestination">Destination</label>
             <input type="text" class="form-control" id="train-destination">
         </div>
 
         <div class="form-group">
-            <label for="TrainTime">First Train Time (HH:MM - military time)</label>
+            <label for="trainTime">First Train Time (HH:MM - military time)</label>
             <input type="text" class="form-control" id="train-time">
         </div>
 
         <div class="form-group">
-            <label for="TrainFrequency">Frequency (mins)</label>
+            <label for="trainFrequency">Frequency (mins)</label>
             <input type="text" class="form-control" id="train-frequency">
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
@@ -109,9 +110,10 @@
     </div>
 
 
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-database.js"></script>
-    <script src="assets\javascript\moment.js"></script>
+    <!--Link Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/6.4.2/firebase-app.js"></script>
+
+    <!--Link jQuery Library-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

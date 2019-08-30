@@ -10,6 +10,7 @@ $(document).ready(function () {
         messagingSenderId: "190155203085",
         appId: "1:190155203085:web:d67d8854343cac09"
     };
+    
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
@@ -37,7 +38,7 @@ $(document).ready(function () {
             tName: trainName,
             tDestination: trainDestination,
             tTime: trainTime,
-            tFrequency: trainFrequency
+            tFrequency: trainFrequency,
         };
 
         // Uploads train data to the database

@@ -1,5 +1,6 @@
 $(document).ready(function () {
-
+    
+    // Connect with Firebase
     var firebaseConfig = {
         apiKey: "AIzaSyCi8shGwo1h69ZVMp20YqJ8GGSPhVzsys0",
         authDomain: "train-schedule-740c8.firebaseapp.com",
@@ -15,31 +16,38 @@ $(document).ready(function () {
     var database = firebase.database();
 
 
-    $("#submit-input").on("click", function () {
+    $(".addTrain").on("click", function () {
         event.preventDefault();
 
         // Grabbed Values
-        var name = $("#train.name").val().trim();
-        var destination = $("#train-destination").val().trim();
-        var time = $("#train-time").val().trim();
-        var frequency = $("#train-frequency").val().trim();
+        var tName = $("#train-name").val().trim();
+        var tDestination = $("#train-destination").val().trim();
+        var tTime = moment($("#train-time").val().trim(), "HH:mm").subtract(10, "years").format("X");
+        var tFrequency = $("#train-frequency").val().trim();
 
+        //Check variables
+        console.log(tName);
+        console.log(tDestination);
+        console.log(tTime);
+        console.log(tFrequency);
+
+        
         // Creates local "temporary" object for holding train data
         var newTrain = {
-            name: trainName,
-            destination: trainDestination,
-            time: trainTime,
-            frequency: trainFrequency
+            tName: trainName,
+            tDestination: trainDestination,
+            tTime: trainTime,
+            tFrequency: trainFrequency
         };
 
-        // Uploads employee data to the database
+        // Uploads train data to the database
         database.ref().push(newTrain);
 
         // Logs everything to console
-        console.log(newTrain.name);
-        console.log(newTrain.destination);
-        console.log(newTrain.time);
-        console.log(newTrain.frequency);
+        console.log(newTrain.tName);
+        console.log(newTrain.tDestination);
+        console.log(newTrain.tTime);
+        console.log(newTrain.tFrequency);
 
 
         // Clears all of the text-boxes
@@ -71,7 +79,7 @@ $(document).ready(function () {
 
         //Create minutes away
 
-        
+
 
         // Create the new row
         var newRow = $("<tr>").append(

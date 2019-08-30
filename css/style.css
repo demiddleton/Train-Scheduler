@@ -1,9 +1,14 @@
 form {
-    margin-top:20px;
-    margin-left: 150px;
-    width: 980px;
-    color: white;
+    margin-top:10px;
+    margin-left: 350px;
+    width: 700px;
+    color: green;
+    background-color: white;
           
+}
+
+#add-train{
+    color: white;
 }
 .jumbotron {
     height: 100px;

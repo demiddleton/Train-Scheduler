@@ -1,8 +1,9 @@
 form {
     margin-top:20px;
     margin-left: 150px;
-    width: 1040px;
-    
+    width: 980px;
+    color: white;
+          
 }
 .jumbotron {
     height: 100px;
@@ -14,6 +15,10 @@ body {
     background-image: url(https://images3.alphacoders.com/106/106677.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
+}
+
+table {
+    color: white;
 }
 
 

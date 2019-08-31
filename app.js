@@ -17,7 +17,7 @@ $(document).ready(function () {
     var database = firebase.database();
 
 
-    $(".addTrain").on("click", function () {
+    $("#add-train").on("click", function () {
         event.preventDefault();
 
         // Grabbed Values

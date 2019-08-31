@@ -84,40 +84,51 @@
 
     </div>
     <br>
-    <form class="border border-success justify-content-center">
 
-        <div class="form-group border border-success bg-success" id="add-train">
-            <label for="AddTrain"><strong> Add Train</strong></label>
+    <div class="row">
+
+        <!-- Add train Card-->
+        <div class="col-lg-6">
+            <div class="card card-default">
+                <div class="card-header">
+                    Add Train
+                </div>
+                <div class="card-body">
+
+                    <!-- Add train Form -->
+
+                    <form role="form" class="form-control-sm">
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="train-name">Name:</label>
+                                <input class="form-control" id="train-name" type="text">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="train-destination">Destination:</label>
+                                <input class="form-control" id="train-destination" type="number">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="train-time">First Train Time (HH:MM - military time):</label>
+                                <input class="form-control" id="train-time" type="number">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="train-frequency">Frequency (mins):</label>
+                                <input class="form-control" id="train-frequency" type="number">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-success" id="add-train" type="submit">Submit</button>
+                    </form>
+
+                </div>
+
+            </div>
+
         </div>
-
-        <div class="form-group">
-            <label for="trainName">Train Name</label>
-            <input type="text" class="form-control" id="train-name">
-        </div>
-
-        <div class="form-group">
-            <label for="trainDestination">Destination</label>
-            <input type="text" class="form-control" id="train-destination">
-        </div>
-
-        <div class="form-group">
-            <label for="trainTime">First Train Time (HH:MM - military time)</label>
-            <input type="text" class="form-control" id="train-time">
-        </div>
-
-        <div class="form-group">
-            <label for="trainFrequency">Frequency (mins)</label>
-            <input type="text" class="form-control" id="train-frequency">
-        </div>
-        <button type="submit" class="btn btn-success addTrain">Submit</button>
-    </form>
-
-
-
-
-
-
-
 
 
 
@@ -128,8 +139,8 @@
 
 
 
-<!--Link app.js -->
-<script type="text/javascript" src="app.js"></script>
+    <!--Link app.js -->
+    <script type="text/javascript" src="app.js"></script>
 
 
 </body>

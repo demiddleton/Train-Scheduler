@@ -20,4 +20,9 @@ table {
     color: white;
 }
 
+.card-header {
+   color: black;
+   font-weight: bold;
+}
+
 

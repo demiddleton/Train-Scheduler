@@ -1,5 +1,8 @@
 $(document).ready(function () {
 
+    var currentTime = moment().format('LTS');
+    console.log(currentTime);
+
     // Connect with Firebase
     var firebaseConfig = {
         apiKey: "AIzaSyCi8shGwo1h69ZVMp20YqJ8GGSPhVzsys0",
@@ -49,28 +52,41 @@ $(document).ready(function () {
         $("#train-time").val("");
         $("#train-frequency").val("");
 
-
+    
         // Create Firebase event for adding train info to the database and a row in the html when a user adds information
 
         database.ref().on("child_added", function (childSnapshot) {
             console.log(childSnapshot.val());
 
-            var tTime = moment(childSnapshot.val().tTime, "hh:mm").subtract(1, "years");
+            
             // Store times into variables.
-            var x = moment().diff(moment(tTime), "minutes");
-            var minsAway = x % childSnapshot.val().tFrequency - minsAway;
-            var nextArrival = moment(nextArrival).format("hh:mm");
+            
+            var trainTime = moment(childSnapshot.val().tTime, "hh:mm").subtract(1, "years");
+            var timeDiff = moment().diff(moment(trainTime), "minutes");
+            var timeRemain = timeDiff % childSnapshot.val().tFrequency;
+            var minsAway = childSnapshot.val().tFrequency - timeRemain;
+            var nextArrival = moment().add(moment(minsAway), "minutes");
 
-            var newRow = $("<tr>").append(
-                 $("<td>").text(tName),
-                 $("<td>").text(tDestination),
-                 $("<td>").text(tFrequency),
-                $("<td>").text(nextArrival),
-                $("<td>").text(minsAway)
-                 );
+            //var newRow = $("<tr>").append(
+           //     $("<td>").text(tName),
+           //      $("<td>").text(tDestination),
+           //      $("<td>").text(tFrequency),
+           //     $("<td>").text(nextArrival),
+           //     $("<td>").text(minsAway),
+           //     );
+           
+           var newRow = $("<tr>");
+           
+           newRow.append($("<td>" + tName + "</td>"));
+           newRow.append($("<td>" + tDestination + "</td>"));
+           newRow.append($("<td>" + tFrequency + "</td>"));
+           newRow.append($("<td>" + nextArrival + "</td>"));
+           newRow.append($("<td>" + minsAway + "</td>"));
+
+
 
               // Append the new row to the table
-                $(".table").append(newRow);
+                $("#table-area" ).append(newRow);
 
         });
     });

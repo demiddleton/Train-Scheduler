@@ -16,8 +16,8 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
-     <!-- Moment.js Reference -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 
 
     <!--Link jQuery library-->
@@ -41,7 +41,7 @@
             <p class="text-center">Choo Choo. Chee Chee</p>
         </div>
 
-        <div class="row " id="table-area">
+        <div class="row " id="tableArea">
             <div class="col-md-12 bg-success" id="table-header">
                 <strong> Current Train Schedule</strong>
             </div>
@@ -94,44 +94,44 @@
 
                 <div class="card-header col-sm-12 bg-success">
                     Add Train
+                </div>
+            </div>
+            <div class="card-body">
+
+                <!-- Add train Form -->
+
+                <form role="form" class="form-control-sm">
+
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <label for="train-name">Train Name:</label>
+                            <input class="form-control" id="train-name" type="text">
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="train-destination">Destination:</label>
+                            <input class="form-control" id="train-destination" type="text">
+                        </div>
                     </div>
-                </div>
-                <div class="card-body">
 
-                    <!-- Add train Form -->
-
-                    <form role="form" class="form-control-sm">
-
-                        <div class="form-row">
-                            <div class="col-sm-6">
-                                <label for="train-name">Train Name:</label>
-                                <input class="form-control" id="train-name" type="text">
-                            </div>
-                            <div class="col-sm-6">
-                                <label for="train-destination">Destination:</label>
-                                <input class="form-control" id="train-destination" type="text">
-                            </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="train-time">First Train Time (HH:MM - military time):</label>
+                            <input class="form-control" id="train-time" type="text">
                         </div>
-
-                        <div class="form-row">
-                            <div class="col-md-6">
-                                <label for="train-time">First Train Time (HH:MM - military time):</label>
-                                <input class="form-control" id="train-time" type="text">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="train-frequency">Frequency (mins):</label>
-                                <input class="form-control" id="train-frequency" type="number">
-                            </div>
+                        <div class="col-md-6">
+                            <label for="train-frequency">Frequency (mins):</label>
+                            <input class="form-control" id="train-frequency" type="number">
                         </div>
+                    </div>
 
-                        <button class="btn btn-success" id="add-train" type="submit">Submit</button>
-                    </form>
-
-                </div>
+                    <button class="btn btn-success" id="add-train" type="submit">Submit</button>
+                </form>
 
             </div>
 
         </div>
+
+    </div>
 
 
 

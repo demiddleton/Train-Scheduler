@@ -1,7 +1,12 @@
 $(document).ready(function () {
 
-    var currentTime = moment().format('LTS');
-    console.log(currentTime);
+    function displayTime() {
+        var time = moment().format('HH:mm:ss');
+        $('#current-time').html("Current Time: " + time);
+        setTimeout(displayTime, 1000);
+    }
+    displayTime();
+    
 
     // Connect with Firebase
     var firebaseConfig = {
@@ -51,45 +56,49 @@ $(document).ready(function () {
         $("#train-destination").val("");
         $("#train-time").val("");
         $("#train-frequency").val("");
+        
 
     
-        // Create Firebase event for adding train info to the database and a row in the html when a user adds information
 
-        database.ref().on("child_added", function (childSnapshot) {
-            console.log(childSnapshot.val());
+    // Create Firebase event for adding train info to the database and a row in the html when a user adds information
 
-            
-            // Store times into variables.
-            
-            var trainTime = moment(childSnapshot.val().tTime, "hh:mm").subtract(1, "years");
-            var timeDiff = moment().diff(moment(trainTime), "minutes");
-            var timeRemain = timeDiff % childSnapshot.val().tFrequency;
-            var minsAway = childSnapshot.val().tFrequency - timeRemain;
-            var nextArrival = moment().add(moment(minsAway), "minutes");
-
-            //var newRow = $("<tr>").append(
-           //     $("<td>").text(tName),
-           //      $("<td>").text(tDestination),
-           //      $("<td>").text(tFrequency),
-           //     $("<td>").text(nextArrival),
-           //     $("<td>").text(minsAway),
-           //     );
-           
-           var newRow = $("<tr>");
-           
-           newRow.append($("<td>" + tName + "</td>"));
-           newRow.append($("<td>" + tDestination + "</td>"));
-           newRow.append($("<td>" + tFrequency + "</td>"));
-           newRow.append($("<td>" + nextArrival + "</td>"));
-           newRow.append($("<td>" + minsAway + "</td>"));
+    database.ref().on("child_added", function (childSnapshot) {
+        console.log(childSnapshot.val());
 
 
+        // Store times into variables.
 
-              // Append the new row to the table
-                $("#table-area" ).append(newRow);
+        var trainTime = moment(childSnapshot.val().tTime, "hh:mm").subtract(1, "years");
+        console.log(trainTime);
+        var timeDiff = moment().diff(moment(trainTime), "minutes");
+        var timeRemain = timeDiff % childSnapshot.val().tFrequency;
+        var minsAway = childSnapshot.val().tFrequency - timeRemain;
+        var nextArrival = moment().add(moment(minsAway), "minutes");
 
-        });
+        //var newRow = $("<tr>").append(
+        //     $("<td>").text(tName),
+        //      $("<td>").text(tDestination),
+        //      $("<td>").text(tFrequency),
+        //     $("<td>").text(nextArrival),
+        //     $("<td>").text(minsAway),
+        //     );
+
+        var newRow = $("<tr>");
+
+        newRow.append($("<td>" + tName + "</td>"));
+        newRow.append($("<td>" + tDestination + "</td>"));
+        newRow.append($("<td>" + tFrequency + "</td>"));
+        newRow.append($("<td>" + nextArrival + "</td>"));
+        newRow.append($("<td>" + minsAway + "</td>"));
+
+
+
+        // Append the new row to the table
+        $("#table-area").append(newRow);
+
     });
+
+});
 
 });
 

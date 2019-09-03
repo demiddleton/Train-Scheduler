@@ -1,13 +1,5 @@
 $(document).ready(function () {
 
-    function displayTime() {
-        var time = moment().format('HH:mm:ss');
-        $('#current-time').html("Current Time: " + time);
-        setTimeout(displayTime, 1000);
-    }
-    displayTime();
-    
-
     // Connect with Firebase
     var firebaseConfig = {
         apiKey: "AIzaSyCi8shGwo1h69ZVMp20YqJ8GGSPhVzsys0",
@@ -24,6 +16,13 @@ $(document).ready(function () {
 
     var database = firebase.database();
 
+    function displayTime() {
+        var time = moment().format('hh:mm:ss');
+        $('#current-time').html("Current Time: " + time);
+        setTimeout(displayTime, 1000);
+    }
+    displayTime();
+
 
     $("#add-train").on("click", function () {
         event.preventDefault();
@@ -31,14 +30,14 @@ $(document).ready(function () {
         // Grabbed Values
         var tName = $("#train-name").val().trim();
         var tDestination = $("#train-destination").val().trim();
-        var tTime = moment($("#train-time").val().trim(), "HH:mm").subtract(10, "years").format("X");
+        var tTime = $("#train-time").val().trim();
         var tFrequency = $("#train-frequency").val().trim();
 
         //Check variables
         console.log(tName);
         console.log(tDestination);
-        console.log(tTime);
         console.log(tFrequency);
+        console.log(tTime);
 
 
         // Uploads train data to the database
@@ -56,49 +55,59 @@ $(document).ready(function () {
         $("#train-destination").val("");
         $("#train-time").val("");
         $("#train-frequency").val("");
-        
-
-    
-
-    // Create Firebase event for adding train info to the database and a row in the html when a user adds information
-
-    database.ref().on("child_added", function (childSnapshot) {
-        console.log(childSnapshot.val());
 
 
-        // Store times into variables.
+        // Create Firebase event for adding train info to the database and a row in the html when a user adds information
 
-        var trainTime = moment(childSnapshot.val().tTime, "hh:mm").subtract(1, "years");
-        console.log(trainTime);
-        var timeDiff = moment().diff(moment(trainTime), "minutes");
-        var timeRemain = timeDiff % childSnapshot.val().tFrequency;
-        var minsAway = childSnapshot.val().tFrequency - timeRemain;
-        var nextArrival = moment().add(moment(minsAway), "minutes");
+        database.ref().on("child_added", function (childSnapshot) {
 
-        //var newRow = $("<tr>").append(
-        //     $("<td>").text(tName),
-        //      $("<td>").text(tDestination),
-        //      $("<td>").text(tFrequency),
-        //     $("<td>").text(nextArrival),
-        //     $("<td>").text(minsAway),
-        //     );
+            // Store times into variables.
+            var trainDiff = 0;
+            var trainRemainder = 0;
+            var minsAway = "";
+            var nextArrival = "";
 
-        var newRow = $("<tr>");
+            //Convert tTime into standard time
+            var startTime = moment(childSnapshot.val().tTime, "hh:mm").subtract(1, "years");
 
-        newRow.append($("<td>" + tName + "</td>"));
-        newRow.append($("<td>" + tDestination + "</td>"));
-        newRow.append($("<td>" + tFrequency + "</td>"));
-        newRow.append($("<td>" + nextArrival + "</td>"));
-        newRow.append($("<td>" + minsAway + "</td>"));
+            //Find difference in time from 'now' and the first train and convert to minutes
+            var trainDiff = moment().diff(moment(startTime), "minutes");
+            console.log(trainDiff)
+
+            //Get the remainder of time by using 'moderator' with the frequency & time difference
+            trainRemainder = trainDiff % tFrequency;
+
+            //Subtract the remainder from the frequency
+            minsAway = tFrequency - trainRemainder;
+
+            //Find next train & convert to standard time format
+            nextArrival = moment().add(minsAway, "minmutes").format("hh:mm A");
+
+
+            //var newRow = $("<tr>").append(
+            //     $("<td>").text(tName),
+            //      $("<td>").text(tDestination),
+            //      $("<td>").text(tFrequency),
+            //     $("<td>").text(nextArrival),
+            //     $("<td>").text(minsAway),
+            //     );
+
+            var newRow = $("<tr>");
+
+            newRow.append($("<td>" + tName + "</td>"));
+            newRow.append($("<td>" + tDestination + "</td>"));
+            newRow.append($("<td>" + tFrequency + "</td>"));
+            newRow.append($("<td>" + nextArrival + "</td>"));
+            newRow.append($("<td>" + minsAway + "</td>"));
 
 
 
-        // Append the new row to the table
-        $("#table-area").append(newRow);
+            // Append the new row to the table
+            $("#table-area").append(newRow);
+
+        });
 
     });
-
-});
 
 });
 

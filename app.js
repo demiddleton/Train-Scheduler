@@ -59,7 +59,7 @@ $(document).ready(function () {
 
         // Create Firebase event for adding train info to the database and a row in the html when a user adds information
 
-        database.ref().on("child_added", function (childSnapshot) {
+        database.ref().once("child_added", function (childSnapshot) {
 
             // Store times into variables.
             var trainDiff = 0;

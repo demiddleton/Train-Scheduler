@@ -11,4 +11,7 @@ In this assignment, I created a train schedule application that incorporates Fir
     * Frequency -- in minutes
     * Code this app to calculate when the next train will arrive; this should be relative to the current time.
     * Users from many different machines must be able to view same train times.
-    
+    ____________________________________________________________________________________________________________
+
+    Here's a link to the deployed site:
+    [Train Scheduler](https://demiddleton.github.io/Train-Scheduler/)

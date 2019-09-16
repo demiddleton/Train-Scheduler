@@ -25,4 +25,14 @@ table {
    font-weight: bold;
 }
 
+#table-header {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#add-train {
+    color: black;
+    font-weight: bold;
+}
 
